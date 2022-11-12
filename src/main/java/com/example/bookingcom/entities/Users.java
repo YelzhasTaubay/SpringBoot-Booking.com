@@ -36,6 +36,9 @@ public class Users implements UserDetails {
 
     private int age;
 
+    @Column(nullable = true)
+    private int money;
+
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
     private Country citizenship;
 

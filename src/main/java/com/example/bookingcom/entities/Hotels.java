@@ -24,6 +24,7 @@ public class Hotels {
 
     private String title;
 
+    @Column(columnDefinition = "Text")
     private String description;
 
     @ManyToMany
@@ -35,11 +36,17 @@ public class Hotels {
     @OneToMany(fetch = FetchType.LAZY)
     private List<ComfortsOfHotel> comforts;
 
+    private String street;
+
+    @Column(nullable = true)
     private int rating;
 
     private int price;
 
     private int amountOfNomers;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<PhotosOfHotel> photos;
 
 
 

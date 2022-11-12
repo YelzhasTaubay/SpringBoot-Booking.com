@@ -1,24 +1,17 @@
-package com.example.bookingcom.entities;
+package com.example.bookingcom.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
-@Table(name = "comfortOfHotel")
-public class  ComfortsOfHotel {
+public class StatusDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
 
 }

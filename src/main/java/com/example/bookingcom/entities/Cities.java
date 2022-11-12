@@ -21,5 +21,4 @@ public class Cities {
 
     private String name;
 
-    private String street;
 }

@@ -11,6 +11,15 @@
 
     <div layout:fragment="mainContent">
         <div class="container">
+
+            <table>
+                <tbody>
+                <tr th:each="city: ${cities}">
+                    <td th:text="${city.name}"></td>
+                </tr>
+                </tbody>
+            </table>
+
         <h5 style="padding-top: 20px;padding-bottom: 20px">The 2022 FIFA World Cup is scheduled to be the 22nd running of the FIFA World Cup competition, the quadrennial international men's football championship contested by the senior national teams of the member associations of FIFA. It is scheduled to take place in Qatar from 20 November to 18 December 2022. This will be the first World Cup ever to be held in the Arab world,[1] and the second World Cup held entirely in Asia after the 2002 tournament in South Korea and Japan.[a] In addition, the tournament is scheduled to be the last with a 32-team field; the field is slated to increase to 48 teams for the 2026 tournament in the United States, Mexico, and Canada.
             Due to Qatar's intense summer heat, this World Cup will be held from late-November to mid-December, making it the first tournament not to be held in May, June, or July and to take place in the northern autumn; it will be played in a reduced timeframe of around 29 days.[2] The opening match will be contested between Qatar and Ecuador at Al Bayt Stadium, Al Khor. The final is due to be held on 18 December 2022, which is also Qatar National Day. The reigning World Cup champions are France.[3]
             The bidding procedure to host the 2018 and 2022 FIFA World Cups began in January 2009, and national associations had until 2 February 2009 to register their interest.[4] Initially, eleven bids were made for the 2018 FIFA World Cup, but Mexico later withdrew from proceedings,[5][6] and Indonesia's bid was rejected by FIFA in February 2010 after the Indonesian Football Association failed to submit a letter of Indonesian government guarantee to support the bid.[7] Indonesian officials had not ruled out a bid for the 2026 FIFA World Cup, until Qatar was awarded the 2022 tournament.[citation needed] During the bidding process, all non-UEFA nations gradually withdrew their 2018 bids, thus guaranteeing that a UEFA nation would host the 2018 tournament and thereby making UEFA nations ineligible for the 2022 bid.

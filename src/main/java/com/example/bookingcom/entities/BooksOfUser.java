@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.sql.Time;
@@ -22,17 +23,21 @@ public class BooksOfUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = true)
     private String name;
 
     private Timestamp bookedTime;
 
-    private Timestamp untilTime;
+    private int days;
+
+    @Column(nullable = true)
+    private int cashForBook;
 
     @OneToOne(fetch = FetchType.EAGER)
-    private Status status;
+    private Status fstatus;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Hotels> hotels;
+    @OneToOne(fetch = FetchType.EAGER)
+    private Hotels hotel;
 
 
 

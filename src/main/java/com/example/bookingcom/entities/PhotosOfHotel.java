@@ -12,13 +12,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "comfortOfHotel")
-public class  ComfortsOfHotel {
+@Table(name = "photos")
+public class PhotosOfHotel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Column(columnDefinition = "Text")
+    private String url;
 
 }
