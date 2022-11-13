@@ -20,15 +20,11 @@ public class Comments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(columnDefinition = "Text")
     private String comment;
-
     private LocalDateTime timeOfComment;
-
     @ManyToOne(fetch = FetchType.EAGER)
     private Users user;
-
     @ManyToOne(fetch = FetchType.EAGER)
     private Hotels hotel;
 

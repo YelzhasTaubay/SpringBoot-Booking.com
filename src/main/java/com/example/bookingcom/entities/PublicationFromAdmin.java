@@ -20,15 +20,13 @@ public class PublicationFromAdmin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
-
+    @ManyToOne
+    private Users user;
     @Column(columnDefinition = "Text")
     private String description;
-
     private LocalDateTime postDate;
-
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     private List<PhotosOfPublication> photos;
 
 

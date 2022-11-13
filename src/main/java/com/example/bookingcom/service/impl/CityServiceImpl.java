@@ -15,7 +15,6 @@ import java.util.List;
 public class CityServiceImpl implements CityService {
 
     private final CityRepository cityRepository;
-    private final CityMapper cityMapper;
 
 
     @Override
@@ -24,9 +23,5 @@ public class CityServiceImpl implements CityService {
         return null;
     }
 
-    @Override
-    public List<CityDTO> getCitiesDTO() {
-        List<CityDTO> allCities=cityMapper.toCityDTOList(getAllCities());
-        return allCities;
-    }
+
 }

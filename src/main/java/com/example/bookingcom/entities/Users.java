@@ -23,31 +23,20 @@ public class Users implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
-    private String email;
-
-    private String password;
-
     private String surname;
-
-    private String passportId;
-
     private int age;
-
-    @Column(nullable = true)
+    private String gender;
     private int money;
-
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
-    private Country citizenship;
-
+    private String passportId;
+    private String email;
+    private String password;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
-
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
+    @OneToOne(fetch = FetchType.LAZY)
+    private Country citizenship;
+    @OneToMany(fetch = FetchType.LAZY)
     private List<BooksOfUser> booksOfUsers;
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -19,9 +19,7 @@ public class TypeOfHotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String type;
-
     @OneToMany(fetch = FetchType.EAGER)
     private List<TypeOfNomer> typeOfNomers;
 

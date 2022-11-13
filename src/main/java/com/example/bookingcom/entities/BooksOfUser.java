@@ -22,20 +22,12 @@ public class BooksOfUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = true)
     private String name;
-
     private Timestamp bookedTime;
-
     private int days;
-
-    @Column(nullable = true)
     private int cashForBook;
-
     @OneToOne(fetch = FetchType.EAGER)
-    private Status fstatus;
-
+    private Status status;
     @OneToOne(fetch = FetchType.EAGER)
     private Hotels hotel;
 

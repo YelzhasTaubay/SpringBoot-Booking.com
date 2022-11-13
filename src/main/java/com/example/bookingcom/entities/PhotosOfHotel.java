@@ -18,7 +18,6 @@ public class PhotosOfHotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(columnDefinition = "Text")
     private String url;
 

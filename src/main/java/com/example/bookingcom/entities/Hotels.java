@@ -19,32 +19,22 @@ public class Hotels {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String name;
-
     private String title;
-
     @Column(columnDefinition = "Text")
     private String description;
-
-    @ManyToMany
-    private List<Country> country;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    private TypeOfHotel typeOfHotel;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<ComfortsOfHotel> comforts;
-
     private String street;
-
     @Column(nullable = true)
     private int rating;
-
     private int price;
-
     private int amountOfNomers;
-
+    @ManyToMany
+    private List<Country> country;
+    @OneToOne(fetch = FetchType.LAZY)
+    private TypeOfHotel typeOfHotel;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<ComfortsOfHotel> comforts;
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<StuffsOfHotel> stuffsOfHotels;
     @OneToMany(fetch = FetchType.LAZY)
     private List<PhotosOfHotel> photos;
 
