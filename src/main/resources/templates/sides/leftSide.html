@@ -1,0 +1,47 @@
+<ul class="list-group" style="width: 300px;margin-left: 30px;margin-top: 50px">
+  <h5 style="margin-left: 10px">Filters for Search</h5>
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
+    <label class="form-check-label stretched-link" for="firstCheckboxStretched">First checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckboxStretched">
+    <label class="form-check-label stretched-link" for="secondCheckboxStretched">Second checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckboxStretched">
+    <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Third checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched1">
+    <label class="form-check-label stretched-link" for="firstCheckboxStretched">Forth checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckboxStretched1">
+    <label class="form-check-label stretched-link" for="secondCheckboxStretched">Fifth checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckboxStretched1">
+    <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Sixth checkbox</label>
+  </li>
+</ul>
+
+
+
+<ul class="list-group" style="width: 300px;margin-left: 30px;margin-top: 50px">
+
+  <div id="googleMap" style="width:100%;height:400px;"></div>
+
+  <script>
+    function myMap() {
+      var mapProp= {
+        center:new google.maps.LatLng(51.508742,-0.120850),
+        zoom:5,
+      };
+      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
+</ul>

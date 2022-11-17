@@ -20,7 +20,7 @@ public class CityServiceImpl implements CityService {
     @Override
     public List<Cities> getAllCities() {
         List<Cities> getAllCities=cityRepository.findAll();
-        return null;
+        return getAllCities;
     }
 
 

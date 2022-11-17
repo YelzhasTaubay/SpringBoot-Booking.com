@@ -24,14 +24,14 @@ public class Hotels {
     private String description;
     private String street;
     @Column(nullable = true)
-    private int rating;
+    private double rating;
     private int price;
     private int amountOfNomers;
     @ManyToMany
     private List<Country> country;
     @OneToOne(fetch = FetchType.LAZY)
     private TypeOfHotel typeOfHotel;
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<ComfortsOfHotel> comforts;
     @ManyToMany(fetch = FetchType.LAZY)
     private List<StuffsOfHotel> stuffsOfHotels;

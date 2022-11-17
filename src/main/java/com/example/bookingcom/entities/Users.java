@@ -26,9 +26,11 @@ public class Users implements UserDetails {
     private String name;
     private String surname;
     private int age;
-    private String gender;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Gender gender;
     private int money;
     private String passportId;
+    private String phoneNumber;
     private String email;
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)

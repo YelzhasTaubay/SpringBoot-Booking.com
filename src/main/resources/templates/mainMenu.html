@@ -12,23 +12,139 @@
     <div layout:fragment="mainContent">
         <div class="container">
 
-            <table>
-                <tbody>
-                <tr th:each="city: ${cities}">
-                    <td th:text="${city.name}"></td>
-                </tr>
-                </tbody>
-            </table>
+            &nbsp;
 
-        <h5 style="padding-top: 20px;padding-bottom: 20px">The 2022 FIFA World Cup is scheduled to be the 22nd running of the FIFA World Cup competition, the quadrennial international men's football championship contested by the senior national teams of the member associations of FIFA. It is scheduled to take place in Qatar from 20 November to 18 December 2022. This will be the first World Cup ever to be held in the Arab world,[1] and the second World Cup held entirely in Asia after the 2002 tournament in South Korea and Japan.[a] In addition, the tournament is scheduled to be the last with a 32-team field; the field is slated to increase to 48 teams for the 2026 tournament in the United States, Mexico, and Canada.
-            Due to Qatar's intense summer heat, this World Cup will be held from late-November to mid-December, making it the first tournament not to be held in May, June, or July and to take place in the northern autumn; it will be played in a reduced timeframe of around 29 days.[2] The opening match will be contested between Qatar and Ecuador at Al Bayt Stadium, Al Khor. The final is due to be held on 18 December 2022, which is also Qatar National Day. The reigning World Cup champions are France.[3]
-            The bidding procedure to host the 2018 and 2022 FIFA World Cups began in January 2009, and national associations had until 2 February 2009 to register their interest.[4] Initially, eleven bids were made for the 2018 FIFA World Cup, but Mexico later withdrew from proceedings,[5][6] and Indonesia's bid was rejected by FIFA in February 2010 after the Indonesian Football Association failed to submit a letter of Indonesian government guarantee to support the bid.[7] Indonesian officials had not ruled out a bid for the 2026 FIFA World Cup, until Qatar was awarded the 2022 tournament.[citation needed] During the bidding process, all non-UEFA nations gradually withdrew their 2018 bids, thus guaranteeing that a UEFA nation would host the 2018 tournament and thereby making UEFA nations ineligible for the 2022 bid.
-            Additionally, Qatar has faced strong criticism due to the treatment of foreign workers involved in preparation for the World Cup, with Amnesty International referring to "forced labour" and poor working conditions,[19][20] while many migrant workers reported having to pay large "recruitment fees" to obtain employment.[21] An investigation by The Guardian newspaper claimed that many workers are denied food and water, have their identity papers taken away from them, and that they are not paid on time or at all, making some of them in effect slaves. The Guardian has estimated that up to 4,000 workers may die due to lax safety and other causes by the time the competition is held. Between 2015 and 2021, the Qatari government adopted new labour reforms to improve working conditions, including a minimum wage for all workers and the removal of the kafala system. According to Amnesty International, however, living and working conditions of the foreign workers have not improved in the last years.[22]
+            <div class="card mb-3 " style="width: 1000px;margin-left: 100px">
+                <div class="row g-0 ">
+                    <div class="col-md-4" >
+                        <img src="https://images.unsplash.com/photo-1546587348-d12660c30c50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80" class="img-fluid rounded-start" alt="...">
 
-            Qatar is the smallest nation by area ever to have been awarded a FIFA World Cup – the next smallest by area is Switzerland, host of the 1954 World Cup, which is more than three times as large as Qatar and only needed to host 16 teams instead of the current 32. Qatar also became only the second country (not including Uruguay and Italy, hosts of the first two World Cups) to be awarded a FIFA World Cup despite having never qualified for a previous edition: Japan was awarded co-hosting rights of the 2002 World Cup in 1996 without ever having qualified for the finals, although they subsequently did qualify for the 1998 edition. 6 of the 8 stadiums that will be used in the tournament are located in the Doha metropolitan area, therefore, it is the first World Cup since 1930 in which most of the stadiums are in one city. While this does decrease the amount that fans and players will need to commute, conversely, the country itself is struggling to accommodate the amount of arriving fans with its diminutive amount of space.[23]
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><a th:href="@{'/details'}">First Hotel</a> </h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
 
-            Due to Qatar's laws on alcohol consumption, World Cup organizers have announced the creation of designated "sobering up" zones as an alternative to wide-scale arrests of intoxicated fans during the World Cup.[24] Qatar's World Cup chief executive of the supreme committee, Nasser Al Khater, was cited by Sky News ensuring safety for implementing the designated sobering-up areas, "It's a place to make sure that they keep themselves safe, they are not harmful to anybody else."[25] According to ESPN, if a fan is sent to the "sobering up" zone, they will be permitted to leave when they can display clearheaded behavior.[26]
-        </h5>
+                <nav class="navbar navbar-expand-lg ">
+                    <button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button>
+                    <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 400px;">Rating/10</button>
+                    <div class="fa fa-star" style="color: #ffc82e;font-size: 30px;font-weight: bold;"></div>
+                </nav>
+
+            </div>
+
+
+            <div class="card mb-3 " style="width: 1000px;margin-left: 100px">
+                <div class="row g-0 ">
+                    <div class="col-md-4">
+                        <img src="https://media.timeout.com/images/105303515/750/422/image.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><a th:href="@{'/details'}">Second Hotel</a> </h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="navbar navbar-expand-lg ">
+                    <button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button>
+                    <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 400px;">Rating/9.1</button>
+                    <div class="fa fa-star" style="color: #ffc82e;font-size: 30px;font-weight: bold;"></div>
+                </nav>
+
+            </div>
+
+
+            <div class="card mb-3" style="width: 1000px;margin-left: 100px">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://digitalnomads.world/wp-content/uploads/2021/11/almaty-digital-nomads-1024x683.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><a th:href="@{'/details'}">Third Hotel</a> </h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="navbar navbar-expand-lg ">
+                    <button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button>
+                    <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 400px;">Rating/7.3</button>
+                    <div class="fa fa-star" style="color: #ffc82e;font-size: 30px;font-weight: bold;"></div>
+                </nav>
+
+            </div>
+
+
+            <div class="card mb-3 " style="width: 1000px;margin-left: 100px">
+                <div class="row g-0 ">
+                    <div class="col-md-4">
+                        <img src="https://blog-www.pods.com/wp-content/uploads/2019/04/MG_1_1_New_York_City-1.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><a th:href="@{'/details'}">Forth Hotel</a> </h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="navbar navbar-expand-lg ">
+                    <button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button>
+                    <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 400px;">Rating/9.7</button>
+                    <div class="fa fa-star" style="color: #ffc82e;font-size: 30px;font-weight: bold;"></div>
+                </nav>
+
+            </div>
+
+
+            <div class="card mb-3 " style="width: 1000px;margin-left: 100px">
+                <div class="row g-0 ">
+                    <div class="col-md-4">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/c5/7c/68/caption.jpg?w=700&h=500&s=1&cx=950&cy=1766&chk=v1_9ee2771da71f55a7ac6a" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><a th:href="@{'/details'}">Fifth Hotel</a> </h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="navbar navbar-expand-lg ">
+                    <button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button>
+                    <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 400px;">Rating/4.6</button>
+                    <div class="fa fa-star" style="color: #ffc82e;font-size: 30px;font-weight: bold;"></div>
+                </nav>
+
+            </div>
+
+
+
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            <nav aria-label="Page navigation example" style="margin-left: 400px">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+
     </div>
     </div>
 

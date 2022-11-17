@@ -32,24 +32,25 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
-        AuthenticationManagerBuilder authenticationManagerBuilder =
-                http.getSharedObject(AuthenticationManagerBuilder.class);
-        authenticationManagerBuilder.userDetailsService(userService()).passwordEncoder(passwordEncoder());
-
-
-        http.authorizeRequests().antMatchers("/css/**","/js/**").permitAll();
+        http.authorizeRequests()
+                .antMatchers("/admin/**").hasRole("Admin")
+                .antMatchers("/profile/**").hasAnyRole("Admin","User")
+                .antMatchers("/login", "/*")
+                .permitAll();
 
         http.formLogin()
-                .loginProcessingUrl("/auth").permitAll() // form action="/auth" method="post"
-                .defaultSuccessUrl("/profile")    //response.sendRedirect("/profile")
-                .failureUrl("/signin?error") //if auth failed
-                .loginPage("/signin").permitAll()  //authentication page
-                .usernameParameter("user_email")   // <input type="email" name="user_email">
-                .passwordParameter("user_password"); // <ipput type="password" name="user_password">
+                .loginProcessingUrl("/signin")
+                .loginPage("/login")
+                .failureUrl("/login?error")
+                .usernameParameter("user_email")
+                .passwordParameter("user_password")
+                .permitAll();
 
         http.logout()
-                .logoutSuccessUrl("/signin")
-                .logoutUrl("/signout");
+                .logoutUrl("/signout")
+                .logoutSuccessUrl("/login")
+                .permitAll()
+                .invalidateHttpSession(true);
 
         http.csrf().disable();
 
