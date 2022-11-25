@@ -9,17 +9,19 @@
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
-<div style="background-image: url('https://media.istockphoto.com/id/498309616/photo/great-ocean-road-at-night-milky-way-view.jpg?s=612x612&w=0&k=20&c=fJGWCAB4JoXaQD6gjJRHjPmPIRvx5e6K-1Oq2EeOZwk=')">
+<div style="background-size: cover; background-image: url('https://thumbs.dreamstime.com/b/time-to-travel-wooden-sign-beach-background-49509295.jpg')  " >
 <div class="container">
-    <div class="frame">
+    <div class="frame" style="width: 500px; height: 700px">
         <div class="nav">
-            <ul class="links" style="margin-left: 120px">
+            <ul class="links" style="margin-left: 140px">
             <li class="signin-active" ><a class="btn" >Sign up</a></li>
             </ul>
         </div>
-            <form class="form-signin" action="" method="post" name="form">
-                <label>Full Name</label>
-                <input class="form-styling" type="text" name="username" placeholder="Full Name" />
+            <form  action="/registrationing" method="post" name="form" >
+                <label> Name</label>
+                <input class="form-styling" type="text" name="name" placeholder="Your Name" />
+                <label> Surname</label>
+                <input class="form-styling" type="text" name="surname" placeholder="Your Surname" />
                 <label>Email</label>
                 <input class="form-styling" type="email" name="email" placeholder="Email"/>
                 <label >Password</label>
@@ -27,26 +29,27 @@
                 <label >Confirm Password</label>
                 <input class="form-styling" type="password" name="password2" placeholder="Confirm Password"/>
                 <div class="btn-animate">
-                    <a class="btn-signin">Sign up</a>
+                    <button class="btn-signin " type="submit" style="color: white;font-weight: bold;font-size: large;background-color: #3B5998">Sign up</button>
                 </div>
             </form>
 
-<!--            <form class="form-signup" action="" method="post" name="form">-->
-<!--                <label >Full name</label>-->
-<!--                <input class="form-styling" type="text" name="fullname" placeholder=""/>-->
-<!--                <label>Email</label>-->
-<!--                <input class="form-styling" type="text" name="email" placeholder=""/>-->
-<!--                <label >Password</label>-->
-<!--                <input class="form-styling" type="text" name="password" placeholder=""/>-->
-<!--                <label >Confirm password</label>-->
-<!--                <input class="form-styling" type="text" name="confirmpassword" placeholder=""/>-->
-<!--                <a ng-click="checked = !checked" class="btn-signup">Sign Up</a>-->
-<!--            </form>-->
+        &nbsp;
+        &nbsp;
+        &nbsp;
+
+        <div class="btn-animate">
+            <a th:href="@{'/'}">
+                <button class="btn-signin " type="submit" style="color: #3B5998;font-weight: bold;font-size: large;background-color: burlywood" > Home</button>
+            </a>
+        </div>
+
+
 
 
 
     </div>
-
+</div>
+</div>
 
 
 </body>

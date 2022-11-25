@@ -11,7 +11,7 @@
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
-<div style="background-image: url('https://media.istockphoto.com/id/498309616/photo/great-ocean-road-at-night-milky-way-view.jpg?s=612x612&w=0&k=20&c=fJGWCAB4JoXaQD6gjJRHjPmPIRvx5e6K-1Oq2EeOZwk=')">
+<div style="background-size: cover; background-image: url('https://prod-virtuoso.dotcmscloud.com/dA/188da7ea-f44f-4b9c-92f9-6a65064021c1/previewImage/PowerfulReasons_hero.jpg')">
 <div class="container">
   <div class="frame">
     <div class="nav">
@@ -26,18 +26,22 @@
       <label >Password</label>
       <input class="form-styling" type="text" name="user_password" placeholder="Password"/>
       <input type="checkbox" id="checkbox"/>
-      <label for="checkbox" ><span class="ui"></span>Keep me signed in</label>
+      <label for="checkbox" >
+        <span class="ui" ></span>Keep me signed in</label>
       <div class="btn-animate">
-        <button class="btn-signin" type="submit">Sign in</button>
+        <button class="btn-signin " type="submit" style="color: white;font-weight: bold;font-size: large;background-color: #3B5998">Sign in</button>
       </div>
     </form>
 
+    &nbsp;
+    &nbsp;
+    &nbsp;
 
-
-
-
-
-
+    <div class="btn-animate">
+      <a th:href="@{'/'}">
+      <button class="btn-signin " type="submit" style="color: #3B5998;font-weight: bold;font-size: large;background-color: burlywood" > Home</button>
+      </a>
+    </div>
 
 
 </body>

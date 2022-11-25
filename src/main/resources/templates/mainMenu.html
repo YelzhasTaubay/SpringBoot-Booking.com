@@ -14,23 +14,24 @@
 
             &nbsp;
 
-            <div class="card mb-3 " style="width: 1000px;margin-left: 100px">
+            <div class="card mb-3 " style="width: 1000px;margin-left: 100px" th:each="hotel: ${hotels}" >
                 <div class="row g-0 ">
-                    <div class="col-md-4" >
-                        <img src="https://images.unsplash.com/photo-1546587348-d12660c30c50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80" class="img-fluid rounded-start" alt="...">
+                    <div class="col-md-4">
+                        <img src="https://media.timeout.com/images/105303515/750/422/image.jpg" class="img-fluid rounded-start" alt="...">
 
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"><a th:href="@{'/details'}">First Hotel</a> </h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <a th:href="@{'/details/'+${hotel.id}}"><h5 class="card-title" th:text="${hotel.title}"></h5></a>
+                            <p class="card-text" th:text="${hotel.street}"></p>
+                            <p class="card-text"><small class="text-muted" th:text="${hotel.typeOfHotel.type}"></small></p>
+
                         </div>
-                    </div>
+                    </div >
                 </div>
 
                 <nav class="navbar navbar-expand-lg ">
-                    <button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button>
+                    <a th:href="@{'/message'}"><button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button></a>
                     <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 400px;">Rating/10</button>
                     <div class="fa fa-star" style="color: #ffc82e;font-size: 30px;font-weight: bold;"></div>
                 </nav>
@@ -38,96 +39,7 @@
             </div>
 
 
-            <div class="card mb-3 " style="width: 1000px;margin-left: 100px">
-                <div class="row g-0 ">
-                    <div class="col-md-4">
-                        <img src="https://media.timeout.com/images/105303515/750/422/image.jpg" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><a th:href="@{'/details'}">Second Hotel</a> </h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
 
-                <nav class="navbar navbar-expand-lg ">
-                    <button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button>
-                    <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 400px;">Rating/9.1</button>
-                    <div class="fa fa-star" style="color: #ffc82e;font-size: 30px;font-weight: bold;"></div>
-                </nav>
-
-            </div>
-
-
-            <div class="card mb-3" style="width: 1000px;margin-left: 100px">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://digitalnomads.world/wp-content/uploads/2021/11/almaty-digital-nomads-1024x683.jpg" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><a th:href="@{'/details'}">Third Hotel</a> </h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-
-                <nav class="navbar navbar-expand-lg ">
-                    <button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button>
-                    <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 400px;">Rating/7.3</button>
-                    <div class="fa fa-star" style="color: #ffc82e;font-size: 30px;font-weight: bold;"></div>
-                </nav>
-
-            </div>
-
-
-            <div class="card mb-3 " style="width: 1000px;margin-left: 100px">
-                <div class="row g-0 ">
-                    <div class="col-md-4">
-                        <img src="https://blog-www.pods.com/wp-content/uploads/2019/04/MG_1_1_New_York_City-1.jpg" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><a th:href="@{'/details'}">Forth Hotel</a> </h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-
-                <nav class="navbar navbar-expand-lg ">
-                    <button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button>
-                    <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 400px;">Rating/9.7</button>
-                    <div class="fa fa-star" style="color: #ffc82e;font-size: 30px;font-weight: bold;"></div>
-                </nav>
-
-            </div>
-
-
-            <div class="card mb-3 " style="width: 1000px;margin-left: 100px">
-                <div class="row g-0 ">
-                    <div class="col-md-4">
-                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/c5/7c/68/caption.jpg?w=700&h=500&s=1&cx=950&cy=1766&chk=v1_9ee2771da71f55a7ac6a" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><a th:href="@{'/details'}">Fifth Hotel</a> </h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-
-                <nav class="navbar navbar-expand-lg ">
-                    <button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button>
-                    <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 400px;">Rating/4.6</button>
-                    <div class="fa fa-star" style="color: #ffc82e;font-size: 30px;font-weight: bold;"></div>
-                </nav>
-
-            </div>
 
 
 
@@ -145,8 +57,10 @@
                 </ul>
             </nav>
 
+
     </div>
     </div>
+
 
 
 

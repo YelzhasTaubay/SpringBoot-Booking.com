@@ -34,7 +34,7 @@ public class SecurityConfig {
 
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasRole("Admin")
-                .antMatchers("/profile/**").hasAnyRole("Admin","User")
+//                .antMatchers("/profile/**").hasAnyRole("Admin","User")
                 .antMatchers("/login", "/*")
                 .permitAll();
 
@@ -48,7 +48,7 @@ public class SecurityConfig {
 
         http.logout()
                 .logoutUrl("/signout")
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/")
                 .permitAll()
                 .invalidateHttpSession(true);
 

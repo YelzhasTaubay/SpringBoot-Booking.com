@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ulraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+
+
+<div class="row">
+  <div class="col-12 mx-auto" th:insert="~{sides/navbar.html}"></div>
+  <div   style="margin-left: 50px;padding-left: 50px" th:insert="~{sides/photosOfHotel.html}"></div>
+  <div class="col-9" style="left: 50px;" layout:fragment="mainContent">
+
+  </div>
+  <div class="col-2" th:insert="~{sides/leftSide.html}"></div>
+
+</div>
+
+<!--<div th:insert="~{sides/footer.html}"></div>-->
+
+
+
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>

@@ -1,21 +1,24 @@
-<nav class="navbar navbar-expand-lg " style="background-color: #003580">
+<nav class="navbar navbar-expand-lg " style="background-color: #003580" xmlns:th="http://www.thymeleaf.org"
+     xmlns:layout="http://www.ulraq.net.nz/thymeleaf/layout"
+     xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" style="font-style: inherit;color: white;font-weight: bold;font-size: xx-large; margin-right: 600px; padding-left: 130px">Booking.com</a>
+    <a class="navbar-brand" href="/" style="font-style: inherit;color: white;font-weight: bold;font-size: xx-large; margin-right: 600px; padding-left: 130px">Booking.com</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-          <li class="nav-item">
+          <li class="nav-item" sec:authorize="isAuthenticated()">
               <!--          Notification-->
-              <a class="nav-link active" aria-current="page" href="#" style="font-style: inherit;color: burlywood;font-weight: bold;font-size: x-large;">&#128276;</a>
+              <a class="nav-link active" aria-current="page" href="#"  style="font-style: inherit;color: burlywood;font-weight: bold;font-size: x-large;">&#128276;</a>
           </li>
           &nbsp;
           &nbsp;
         <li class="nav-item">
 <!--          Currency-->
-          <a class="nav-link active" aria-current="page" href="#" style="font-style: inherit;color: burlywood;font-weight: bold;font-size: x-large;">&#36;</a>
+          <a class="nav-link active" aria-current="page" href="#" style="font-style: inherit;color: burlywood;font-weight: bold;font-size: x-large;" >&#36;</a>
         </li>
           &nbsp;
           &nbsp;
@@ -30,13 +33,22 @@
           <a class="nav-link" href="#" style="font-style: inherit;color: burlywood;font-weight: bold;font-size: x-large;">&#9990;</a>
         </li>
           &nbsp;
+          <li class="nav-item" sec:authorize="isAuthenticated()" >
+          <!--          Profile-->
+            <a class="nav-link " th:href="@{'/cabinet'}"   style="font-style: inherit;color: white;font-weight: bold;" >
+                <i class="fa fa-user" style="font-size: x-large;padding-top: 1px" ></i>
+            </a>
+          </li>
           &nbsp;
           &nbsp;
-          <a type="button" class="btn btn-outline-primary" style="font-style: inherit;color: #003580;background-color: white;padding-top: 10px;padding-bottom: 1px"  href="/registration">Registration</a>
+
+          <a type="button" class="btn btn-outline-primary" style="font-style: inherit;color: #003580;background-color: white;padding-top: 10px;padding-bottom: 1px"  href="/registration" sec:authorize="isAnonymous()" >Registration</a>
           &nbsp;
           &nbsp;
           &nbsp;
-          <a type="button" class="btn btn-outline-primary" style="font-style: inherit;color: #003580;background-color: white;padding-top: 10px;padding-bottom: 1px" href="/login" >Sign in</a>
+          <a type="button" class="btn btn-outline-primary" style="font-style: inherit;color: #003580;background-color: white;padding-top: 10px;padding-bottom: 1px" href="/login"  sec:authorize="isAnonymous()">Sign in</a>
+
+
 
       </ul>
       </ul>
@@ -46,15 +58,32 @@
 </nav>
 
 
-<nav class="navbar navbar-expand-lg " style="background-color: #003580">
+<nav class="navbar navbar-expand-lg " style="background-color: #003580" xmlns:th="http://www.thymeleaf.org"
+     xmlns:layout="http://www.ulraq.net.nz/thymeleaf/layout"
+     xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   <div class="container-fluid" >
-    <form class="d-flex" role="search" style="margin-right: auto;margin-left: auto">
-      <input class="form-control me-2 border border-3 border-warning" type="search" placeholder="Where are you going?" aria-label="Search">
-      <input class="form-control me-2 border border-3 border-warning" type="date" placeholder="Check-in" aria-label="Search">
-      <input class="form-control me-2 border border-3 border-warning" type="date" placeholder="Check-out" aria-label="Search">
-      <input class="form-control me-2 border border-3 border-warning" type="search" placeholder="How much Adults?" aria-label="Search">
-      <input class="form-control me-2 border border-3 border-warning" type="search" placeholder="Children's?" aria-label="Search">
-      <input class="form-control me-2 border border-3 border-warning" type="search" placeholder="Rooms" aria-label="Search">
+    <form class="d-flex" role="search" style="margin-right: auto;margin-left: auto" action="/search" method="post">
+
+        <input class="form-control me-2 border border-3 border-warning" style="width: 270px" type="search" placeholder="Hotel's name?" aria-label="Search" name="hotel">
+
+        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example" name="city" style="width: 180px" >
+            <option selected >Country/City</option>
+            <optgroup th:each="c: ${countries}"   th:label="${c.name}">
+                <option   th:each="ci: ${c.cities}" th:text="${ci.name}" th:value="${ci.id}"></option>
+            </optgroup>
+        </select>
+        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example" name="type" style="width: 160px">
+            <option selected >Type of Hotel</option>
+            <option th:each="t: ${typeOfHotels}" th:text="${t.type}" th:value="${t.id}"></option>
+        </select>
+        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example" name="stars" style="width: 160px">
+            <option selected >Stars of Hotel</option>
+            <option th:each="s: ${stars}" th:text="${s.name}" th:value="${s.id}"></option>
+        </select>
+        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example" name="nomer" style="width: 160px">
+            <option selected >Type of Room</option>
+            <option th:each="t: ${typeOfNomers}" th:text="${t.type}" th:value="${t.id}"></option>
+        </select>
       <button class="btn btn-outline-success" type="submit" style="font-style: inherit;color: #003580;background-color: burlywood">Search</button>
     </form>
   </div>

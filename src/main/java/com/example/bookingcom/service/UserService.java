@@ -8,4 +8,8 @@ public interface UserService extends UserDetailsService {
 
     Users getUserByEmail(String email);
 
+    void addUser(Users user);
+
+
+
 }

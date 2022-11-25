@@ -2,99 +2,75 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
-      layout:decorate="fragments/mainFragment.html">
+      layout:decorate="fragments/mainFragmentWithPhotos.html">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content=
+          "width=device-width, initial-scale=1.0">
   <title>Title</title>
 
 </head>
 <body>
 
 <div layout:fragment="mainContent">
-  <div class="container">
+  <div class="container" style="flex-direction: column" >
+
+
+    <a th:href="@{'/message'}" style="margin-right: 200px; margin-left: 200px"><button type="button" class="btn btn-warning btn-rounded"  >Contact to the Owner</button></a>
+
     &nbsp;
 
-    <h3 style="margin-left: 200px;margin-right: 200px">Hotel Duman</h3>
-    <h4 style="margin-left: 200px;margin-right: 200px">Korgalzhyn highway, 2A , 010000 Нур-Султан, Казахстан</h4>
-    <!-- Gallery -->
+    <h3 style="margin-left: 200px;margin-right: 200px" th:text="${hotel.get().title}"></h3>
+    <h5 style="margin-left: 200px;margin-right: 200px" th:text="${hotel.get().street}"></h5>
+      &nbsp;
+    <p style="margin-left: 200px;margin-right: 200px" th:text="${hotel.get().description}"></p>
 
 
-    <div class="row" align="center" style="margin-left: 200px;margin-right: 200px">
-      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-        <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOv2Xj0Dhoa9Xr5GrPAnWB5-U32thN8RR11N3I4RQ&s"
-                class="w-100 shadow-1-strong rounded mb-4"
-                alt="Boat on Calm Water"
-        />
-
-        <img
-                src="https://time.kz/files/000/013/JdBU0Nq1814.jpg"
-                class="w-100 shadow-1-strong rounded mb-4"
-                alt="Wintry Mountain Landscape"
-        />
-      </div>
-
-      <div class="col-lg-4 mb-4 mb-lg-0">
-        <img
-                src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/4a/95/67/almaty.jpg?w=400&h=300&s=1"
-                class="w-100 shadow-1-strong rounded mb-4"
-                alt="Mountains in the Clouds"
-        />
-
-        <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP8UF9rNeAjjtIQbKFuvbHP6s8amKuNRzQtPoaoe8l&s"
-                class="w-100 shadow-1-strong rounded mb-4"
-                alt="Boat on Calm Water"
-        />
-      </div>
-
-      <div class="col-lg-4 mb-4 mb-lg-0">
-        <img
-                src="https://34travel.me/media/posts/5ec67de4acecf-Depositphotos-26575257-l-2015.jpg"
-                class="w-100 shadow-1-strong rounded mb-4"
-                alt="Waves at Sea"
-        />
-
-        <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdjehfi8gZtsgNAbKbmP_9ODU-BxMamZ4Tlw&usqp=CAU"
-                class="w-100 shadow-1-strong rounded mb-4"
-                alt="Yosemite National Park"
-        />
+    <h6 style="margin-left: 200px;margin-right: 200px;">Most popular facilities</h6>
+    <ul class="block-list" style="margin-left: 200px;margin-right: 200px;display: inline-block"  th:each="stuffs: ${hotel.get().getStuffsOfHotels()}">
+      <li  th:text="${stuffs.name}"></li>
+    </ul>
 
 
-
-
+    <!-- Buttons trigger collapse -->
+    &nbsp;
+    <h5 style="margin-left: 200px;margin-right: 200px;font-weight: bold;font-family: 'Akhbar MT'">Reviews:</h5>
+    <div class="card" style="margin-left: 200px;margin-right: 300px;" th:each="comment: ${comments}">
+      <div class="card-header" style="background-color: cadetblue" th:text="${comment.getUser().name}">
 
       </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p th:text="${comment.comment}" style="font-size: small"></p>
+          <footer class="blockquote-footer" th:text="${comment.timeOfComment}"> <cite title="Source Title"></cite></footer>
+        </blockquote>
       </div>
     </div>
-    <!-- Gallery -->
 
+    <div class="row mt-3" style="margin-left: 200px;margin-right: 200px">
+      <div class="col-12">
+        <textarea rows="2" class="form-control" id = "comment"></textarea>
+      </div>
+    </div>
+    <div class="row mt-3" style="margin-left: 200px;margin-right: 200px">
+      <div class="col-12">
+        <button type="button" id="add_comment_button" class="btn btn-info">Leave Feedback</button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    &nbsp;
     &nbsp;
-
-    <p style="margin-left: 200px;margin-right: 200px">Большой отель расположен в центре Астаны. К услугам гостей крытый
-      бассейн, спа-салон, боулинг-центр и ресторан. К услугам гостей 4-звездочного отеля «Думан» бесплатная парковка.
-      Просторные номера и люксы отеля «Думан» с видом на город оснащены кондиционером и телевизором с плоским экраном и
-      кабельными каналами. В числе удобств ванная комната с бесплатными туалетно-косметическими принадлежностями и
-      халатами. В распоряжении гостей люксов отдельная гостиная.
-      В отеле «Думан» ежедневно сервируют завтрак «шведский стол». В ресторане отеля подают блюда традиционной казахской
-      кухни, а также широкий выбор европейских блюд.
-      Гости отеля могут бесплатно посетить фитнес-центр, спа-салон и оздоровительный центр с сауной. При отеле работает
-      бар и ночной клуб. В лобби-баре можно воспользоваться бесплатным Wi-Fi.
-      Поездка от отеля «Думан» до Старого города Астаны занимает 15 минут. Расстояние до железнодорожного вокзала
-      Астаны составляет 5 км, до аэропорта Астаны — 15 км.</p>
-
-
-
-
-
-
-
+    &nbsp;
   </div>
 </div>
-
-
-
 
 
 </body>
