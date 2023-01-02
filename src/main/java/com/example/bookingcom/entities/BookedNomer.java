@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -14,20 +14,14 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "publication")
-public class PublicationFromAdmin {
+@Table(name = "booked_nomer")
+public class BookedNomer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
+    private String bookedTime;
     @ManyToOne
     private Users user;
-    @Column(columnDefinition = "Text")
-    private String description;
-    private LocalDateTime postDate;
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<PhotosOfPublication> photos;
-
 
 }

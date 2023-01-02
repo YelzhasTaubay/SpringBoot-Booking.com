@@ -20,7 +20,9 @@ public class TypeOfHotel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String type;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)     //Здесь кажется нужно менять Мани то Мани
     private List<TypeOfNomer> typeOfNomers;
+
+
 
 }

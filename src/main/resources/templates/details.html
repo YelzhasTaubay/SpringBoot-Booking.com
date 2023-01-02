@@ -9,7 +9,6 @@
   <meta name="viewport" content=
           "width=device-width, initial-scale=1.0">
   <title>Title</title>
-
 </head>
 <body>
 
@@ -17,7 +16,18 @@
   <div class="container" style="flex-direction: column" >
 
 
-    <a th:href="@{'/message'}" style="margin-right: 200px; margin-left: 200px"><button type="button" class="btn btn-warning btn-rounded"  >Contact to the Owner</button></a>
+    <a th:href="@{'/message'}" style=" margin-left: 200px;"><button type="button" class="btn btn-warning btn-rounded" style="width: 800px" sec:authorize="isAuthenticated()" >Contact the Hotel</button></a>
+
+    &nbsp;
+
+      <div class="alert alert-danger" STYLE="margin-left: 250px;width: 750px" sec:authorize="isAuthenticated()">
+        <div class="alert-container">
+          <b class="alert-info">Attention:</b> To make sure of all the nuances, you'd better contact the hotel administration, for this, click the button above!
+        </div>
+      </div>
+
+      &nbsp;
+
 
     &nbsp;
 
@@ -32,6 +42,23 @@
       <li  th:text="${stuffs.name}"></li>
     </ul>
 
+      &nbsp;
+    <button type="submit" class="btn btn-warning btn-rounded" style="width: 800px;background-color: #8ebf42;margin-left: 200px" sec:authorize="isAuthenticated()" >
+      <a th:href="@{'/book/'+${hotel.get().id}}" style=" margin-left: 50px;color: #0F0F0F;text-decoration: none">
+<!--        <input type="hidden" name="hotelsId" th:value="${hotel.get().id}">-->
+        Tap here to Book room in this hotel
+      </a>
+    </button>
+      &nbsp;
+
+      <div class="alert alert-success" style="margin-left: 250px;width: 750px" sec:authorize="isAuthenticated()">
+          <div class="alert-container">
+              <b class="alert-info"></b> Select dates to see this property's availability and prices (may include Genius rates).
+              We'll send you an email confirming your reservation!
+          </div>
+      </div>
+
+      &nbsp;
 
     <!-- Buttons trigger collapse -->
     &nbsp;
@@ -69,6 +96,9 @@
     &nbsp;
     &nbsp;
     &nbsp;
+    <script>
+
+    </script>
   </div>
 </div>
 

@@ -20,4 +20,5 @@ public class  ComfortsOfHotel {
     private Long id;
     private String name;
 
+
 }

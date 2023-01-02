@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="fragments/mainFragmentCabinet.html">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="/css/styleForCabinet.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div layout:fragment="mainContent">
+  <div class="container">
+
+
+    &nbsp;
+
+    <div class="card mb-3 " style="width: 1000px;margin-left: 100px" th:each="b: ${books}" >
+      <div class="row g-0 ">
+        <div class="col-md-4">
+          <img src="https://media.timeout.com/images/105303515/750/422/image.jpg" class="img-fluid rounded-start" alt="...">
+
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <a th:href="@{'/details/'+${b.hotel.id}}"><h5 class="card-title" th:text="${b.hotel.title}"></h5></a>
+            <h6 class="card-title" th:text="${b.status.name}" style="color: #bb0000;font-weight: bolder"></h6>
+            <div>Booked time</div>
+            <h6 class="card-title" th:text="${b.bookedTime}" style="color: #bb0000;font-weight: bolder"></h6>
+            <p class="card-text" th:text="${b.hotel.street}"></p>
+            <p class="card-text"><small class="text-muted" style="font-size: xx-large" th:text="${b.hotel.typeOfHotel.type}"></small></p>
+
+          </div>
+        </div >
+      </div>
+
+      <nav class="navbar navbar-expand-lg ">
+        <a th:href="@{'/message'}"><button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" >Message</button></a>
+        <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 400px;">Rating/10</button>
+        <div class="fa fa-star" style="color: #ffc82e;font-size: 30px;font-weight: bold;"></div>
+      </nav>
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

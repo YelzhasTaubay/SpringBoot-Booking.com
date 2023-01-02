@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -28,7 +29,6 @@ public class Users implements UserDetails {
     private int age;
     @ManyToOne(fetch = FetchType.LAZY)
     private Gender gender;
-    private int money;
     private String passportId;
     private String phoneNumber;
     private String email;
@@ -37,8 +37,16 @@ public class Users implements UserDetails {
     private List<Role> roles;
     @OneToOne(fetch = FetchType.LAZY)
     private Country citizenship;
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<BooksOfUser> booksOfUsers;
+    @Nullable
+    private String photo;
+    private Boolean children;
+    @OneToOne
+    private Bank_Card bank_card;
+    @Nullable
+    @ManyToMany
+    private List<Hotels> favoriteHotels;
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

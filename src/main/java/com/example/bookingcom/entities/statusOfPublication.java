@@ -11,15 +11,14 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table
-@Entity(name = "status")
-public class Status {
+@Entity
+@Table(name = "status_of_publication")
+public class statusOfPublication {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
 
-
+    private String statusName;
 
 }

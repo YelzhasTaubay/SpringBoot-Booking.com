@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="fragments/mainFragment.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div layout:fragment="mainContent">
+    <div class="container">
+
+        &nbsp;
+
+        <div class="card mb-3 " style="width: 1000px;margin-left: 100px" th:each="hotel: ${hotels}" >
+            <div class="row g-0 ">
+                <div class="col-md-4">
+                    <img src="https://media.timeout.com/images/105303515/750/422/image.jpg" class="img-fluid rounded-start" alt="...">
+
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <a th:href="@{'/details/'+${hotel.id}}"><h5 class="card-title" th:text="${hotel.title}"></h5></a>
+                        <p class="card-text" th:text="${hotel.street}"></p>
+                        <p class="card-text"><small class="text-muted" th:text="${hotel.typeOfHotel.type}"></small></p>
+
+                    </div>
+                </div >
+            </div>
+
+            <nav class="navbar navbar-expand-lg ">
+                <a th:href="@{'/message'}"><button type="button" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 255px; margin-left: 5px" sec:authorize="isAuthenticated()" >Message</button></a>
+                <button type="button" class="btn btn-secondary btn-rounded" style="margin-right: 10px;padding-right: 80px; margin-left: 70px;" sec:authorize="isAuthenticated()">Rating/10</button>
+                <form action="/addfavorites" method="get" sec:authorize="isAuthenticated()">
+                    <input type="hidden" name="hotelsId" th:value="${hotel.id}">
+                    <button type="submit" class="fa fa-star" style="color: #bb0000;font-size: 30px;font-weight: bold;background-color: white;border: none" ></button>
+                </form>
+                <form action="/editHotel" method="get">
+                    <button type="submit" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 100px; margin-left: 5px;background-color: #8ebf42">Edit Hotel</button>
+                </form>
+                <form action="/deleteHotel" method="get">
+                    <button type="submit" class="btn btn-warning btn-rounded" style="margin-right: 10px;padding-right: 100px; margin-left: 5px;background-color: #bb0000">Delete Hotel</button>
+                </form>
+            </nav>
+
+        </div>
+
+
+
+
+
+
+        &nbsp;
+        &nbsp;
+        &nbsp;
+
+        <nav aria-label="Page navigation example" style="margin-left: 400px">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

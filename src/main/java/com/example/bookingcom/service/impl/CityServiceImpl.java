@@ -1,10 +1,7 @@
 package com.example.bookingcom.service.impl;
 
 import com.example.bookingcom.dao.CityRepository;
-import com.example.bookingcom.dto.CityDTO;
-import com.example.bookingcom.dto.mapper.CityMapper;
 import com.example.bookingcom.entities.Cities;
-import com.example.bookingcom.entities.ComfortsOfHotel;
 import com.example.bookingcom.service.CityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

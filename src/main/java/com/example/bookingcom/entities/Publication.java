@@ -7,35 +7,29 @@ import lombok.NoArgsConstructor;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "booksOfUser")
-public class BooksOfUser {
+@Table(name = "publication")
+public class Publication {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private Timestamp bookedTime;
-    private int days;
-    private int cashForBook;
-    @OneToOne(fetch = FetchType.EAGER)
-    private Status status;
-    @OneToOne(fetch = FetchType.EAGER)
-    private Hotels hotel;
-
-
-
-
-
-
+    private String title;
+    private String body;
+    @Column(columnDefinition = "Text")
+    private String urlPhoto;
+    @ManyToOne
+    private Users user;
+    @ManyToMany
+    @Nullable
+    private List<Publication_Type> publication_type;
 
 
 }

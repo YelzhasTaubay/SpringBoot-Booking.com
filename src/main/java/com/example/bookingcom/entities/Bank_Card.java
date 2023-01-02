@@ -12,14 +12,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "photosOfPublication")
-public class PhotosOfPublication {
+@Table(name = "bank_card")
+public class Bank_Card {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(columnDefinition = "Text")
-    private String url;
+    private long NumbersOfCard;
+    private String valid;
+    private int moneyInAccount;
 
 }

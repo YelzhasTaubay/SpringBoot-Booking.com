@@ -179,7 +179,7 @@ public class MainController {
                                   @RequestParam(name = "password") String password,
                                   @RequestParam(name = "password2") String password2){
 
-        Users user=new Users(null,name,surname,0,null,0,null,null,email,password,null,null,null);
+        Users user=new Users(null,name,surname,0,null,null,null,email,password,null,null,null,null,null,null);
         userService.addUser(user);
         return "redirect:/";
     }
@@ -194,8 +194,9 @@ public class MainController {
         System.out.println(stars);
 
         return "redirect:/";
-
     }
+
+
 
 
 

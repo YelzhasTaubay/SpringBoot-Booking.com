@@ -11,4 +11,6 @@ public interface HotelsRepository extends JpaRepository<Hotels,Long> {
 
 
 
+
+
 }

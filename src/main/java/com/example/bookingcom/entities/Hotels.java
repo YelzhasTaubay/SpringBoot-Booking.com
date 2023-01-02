@@ -25,8 +25,8 @@ public class Hotels {
     private String street;
     @Column(nullable = true)
     private double rating;
-    private int price;
-    private int amountOfNomers;
+    @ManyToOne
+    private Users owner;
     @ManyToMany
     private List<Country> country;
     @OneToOne(fetch = FetchType.LAZY)
@@ -37,6 +37,7 @@ public class Hotels {
     private List<StuffsOfHotel> stuffsOfHotels;
     @OneToMany(fetch = FetchType.LAZY)
     private List<PhotosOfHotel> photos;
+
 
 
 
