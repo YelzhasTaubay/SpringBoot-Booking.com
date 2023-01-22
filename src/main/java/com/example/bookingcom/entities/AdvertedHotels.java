@@ -1,6 +1,7 @@
 package com.example.bookingcom.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,14 +10,19 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
-@Table(name = "gender")
-public class Gender {
+@Table(name = "adverted_hotels")
+public class AdvertedHotels {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
 
+    @ManyToOne
+    private Hotels hotel;
+
+    @ManyToOne
+    private Advertisement advertisement;
 
 }

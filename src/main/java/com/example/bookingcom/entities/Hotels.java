@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.List;
@@ -23,8 +24,10 @@ public class Hotels {
     @Column(columnDefinition = "Text")
     private String description;
     private String street;
-    @Column(nullable = true)
+    @Column(nullable = true,updatable = true,insertable = true)
     private double rating;
+//    @ColumnDefault("0")
+//    private int usersVote;
     @ManyToOne
     private Users owner;
     @ManyToMany

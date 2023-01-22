@@ -19,4 +19,9 @@ public class CommentsServiceImpl implements CommentsService {
         List<Comments> allComments=commentsRepository.findAll();
         return allComments;
     }
+
+    @Override
+    public void addComment(Comments comment) {
+        commentsRepository.save(comment);
+    }
 }

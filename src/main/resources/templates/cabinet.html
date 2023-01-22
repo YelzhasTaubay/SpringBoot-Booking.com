@@ -91,7 +91,19 @@
                   <p>Mobile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<span th:text="${user.phoneNumber}"></span></p>
                 </div>
                 <div class="bio-row">
-                  <p>Age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<span th:text="${user.getAge()}"></span></p>
+                  <p>Age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<span th:text="${user.getAge()}+' years old'"></span></p>
+                </div>
+                <div class="bio-row">
+                  <p>My Wallet &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<span th:text="${user.bank_card.moneyInAccount}+'$'"></span></p>
+                </div>
+                <div class="bio-row">
+                  <p>Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<span th:text="${user.gender.name}"></span></p>
+                </div>
+                <div class="bio-row">
+                  <p>Children &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<span th:text="${user.children}" th:classappend="${user.children == true ? 'Yes' : 'NO'}"></span></p>
+                </div>
+                <div class="bio-row">
+                  <p>Passport Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<span th:text="${user.passportId}"></span></p>
                 </div>
                 <div class="bio-row">
                 </div>
@@ -161,6 +173,9 @@
         </div>
       </div>
     </div>
+
+
+
 
 </div>
 </div>

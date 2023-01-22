@@ -32,4 +32,17 @@ public class HotelServiceImpl implements HotelService {
         List<Hotels> hotel=hotelsRepository.getHotelsByTitle(name);
         return hotel;
     }
+
+    @Override
+    public void saveOrUpdateHotel(Hotels hotel) {
+        hotelsRepository.save(hotel);
+    }
+
+    @Override
+    public Hotels findHotelbyName(String name) {
+        Hotels hotel=hotelsRepository.findHotelsByTitle(name);
+        return hotel;
+    }
+
+
 }

@@ -8,4 +8,6 @@ public interface CommentsService {
 
     List<Comments> getAllComments();
 
+    void addComment(Comments comment);
+
 }

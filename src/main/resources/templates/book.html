@@ -39,6 +39,7 @@
                 <form action="/booking" method="get" sec:authorize="isAuthenticated()">
                     <input type="hidden" name="typeId" th:value="${n.id}">
                     <input type="hidden" name="hotelsId" th:value="${hotelsId}">
+                    <input type="hidden" name="priceOfNomer" th:value="${n.priceOfNomer}">
                 <p><button type="submit" class="btn btn-success">Choose this one</button></p>
                 </form>
                 <p sec:authorize="isAnonymous()"><a href="/login" class="btn btn-success">

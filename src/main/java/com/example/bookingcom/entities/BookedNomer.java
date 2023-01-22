@@ -21,7 +21,13 @@ public class BookedNomer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String bookedTime;
+    private int days;
+    private int totalPrice;
     @ManyToOne
     private Users user;
+    @ManyToOne
+    private TypeOfNomer nomer;
+    @ManyToOne
+    private Hotels hotel;
 
 }

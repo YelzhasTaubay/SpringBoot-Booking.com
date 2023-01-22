@@ -13,6 +13,10 @@ public interface HotelService {
 
     List<Hotels> getHotelsByName(String name);
 
+    void saveOrUpdateHotel(Hotels hotel);
+
+    Hotels findHotelbyName(String name);
+
 
 
 }

@@ -27,4 +27,9 @@ public class PublicationServiceImpl implements PublicationService {
     public void savePublication(Publication publication) {
         publicationRepository.save(publication);
     }
+
+    @Override
+    public void deletePublication(Publication publication) {
+        publicationRepository.delete(publication);
+    }
 }

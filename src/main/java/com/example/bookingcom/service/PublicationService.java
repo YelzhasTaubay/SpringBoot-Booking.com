@@ -11,4 +11,8 @@ public interface PublicationService {
 
     void savePublication(Publication publication);
 
+    void deletePublication(Publication publication);
+
+
+
 }

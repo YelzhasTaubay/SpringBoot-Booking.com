@@ -10,6 +10,7 @@
           "width=device-width, initial-scale=1.0">
   <title>Title</title>
 </head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <body>
 
 <div layout:fragment="mainContent">
@@ -27,24 +28,24 @@
       </div>
 
       &nbsp;
+      <button type="button" class="btn btn-outline-primary" style="margin-left: 200px;font-weight: bold;font-size: large;margin-right: 100px" th:text="'This hotels overall rating: '+${hotel.rating}" sec:authorize="isAuthenticated()"></button>
 
 
     &nbsp;
 
-    <h3 style="margin-left: 200px;margin-right: 200px" th:text="${hotel.get().title}"></h3>
-    <h5 style="margin-left: 200px;margin-right: 200px" th:text="${hotel.get().street}"></h5>
+    <h3 style="margin-left: 200px;margin-right: 200px;font-size: xx-large" th:text="${hotel.title}"></h3>
+    <h5 style="margin-left: 200px;margin-right: 200px;font-size: xx-large" th:text="${hotel.street}"></h5>
       &nbsp;
-    <p style="margin-left: 200px;margin-right: 200px" th:text="${hotel.get().description}"></p>
+    <p style="margin-left: 200px;margin-right: 200px;" th:text="${hotel.description}"></p>
 
-
-    <h6 style="margin-left: 200px;margin-right: 200px;">Most popular facilities</h6>
-    <ul class="block-list" style="margin-left: 200px;margin-right: 200px;display: inline-block"  th:each="stuffs: ${hotel.get().getStuffsOfHotels()}">
+    <h6 style="margin-left: 200px;margin-right: 200px;font-size: xx-large;color: #3B5998">Most popular facilities</h6>
+    <ul class="block-list" style="margin-left: 200px;margin-right: 200px;display: inline-block;font-weight: bold;color: #3B5998"  th:each="stuffs: ${hotel.getStuffsOfHotels()}">
       <li  th:text="${stuffs.name}"></li>
     </ul>
 
       &nbsp;
     <button type="submit" class="btn btn-warning btn-rounded" style="width: 800px;background-color: #8ebf42;margin-left: 200px" sec:authorize="isAuthenticated()" >
-      <a th:href="@{'/book/'+${hotel.get().id}}" style=" margin-left: 50px;color: #0F0F0F;text-decoration: none">
+      <a th:href="@{'/book/'+${hotel.id}}" style=" margin-left: 50px;color: #0F0F0F;text-decoration: none">
 <!--        <input type="hidden" name="hotelsId" th:value="${hotel.get().id}">-->
         Tap here to Book room in this hotel
       </a>
@@ -62,9 +63,9 @@
 
     <!-- Buttons trigger collapse -->
     &nbsp;
-    <h5 style="margin-left: 200px;margin-right: 200px;font-weight: bold;font-family: 'Akhbar MT'">Reviews:</h5>
+    <h5 style="margin-left: 470px;margin-right: 200px;font-weight: bold;font-family: 'Akhbar MT';font-size: 30px">Reviews:</h5>
     <div class="card" style="margin-left: 200px;margin-right: 300px;" th:each="comment: ${comments}">
-      <div class="card-header" style="background-color: cadetblue" th:text="${comment.getUser().name}">
+      <div class="card-header" style="background-color: darkorchid;font-weight: bold;color: whitesmoke" th:text="${comment.getUser().name}+' from '+${comment.getUser().citizenship.name}">
 
       </div>
       <div class="card-body">
@@ -74,34 +75,71 @@
         </blockquote>
       </div>
     </div>
+      &nbsp;
 
-    <div class="row mt-3" style="margin-left: 200px;margin-right: 200px">
+      <form action="/commenting" method="get" sec:authorize="isAuthenticated()">
+          <input type="hidden" name="hotelsId" th:value="${hotel.id}">
+    <div class="row mt-3" style="margin-left: 200px;margin-right: 200px" >
       <div class="col-12">
-        <textarea rows="2" class="form-control" id = "comment"></textarea>
+        <textarea rows="2" class="form-control" name="comment"></textarea>
       </div>
     </div>
     <div class="row mt-3" style="margin-left: 200px;margin-right: 200px">
       <div class="col-12">
-        <button type="button" id="add_comment_button" class="btn btn-info">Leave Feedback</button>
+        <button type="submit" id="add_comment_button" class="btn btn-info">Leave Feedback</button>
       </div>
     </div>
+      </form>
 
+      &nbsp;
+      <i class="fa fa-check-circle" style="margin-left: 450px;color: #953b39;font-size: 30px" sec:authorize="isAuthenticated()"> Rate this hotel</i>
+      &nbsp;
+      <div class="star-wrapper" style="margin-left: 250px" sec:authorize="isAuthenticated()">
+<!--          <a th:href="@{'/book/'+${hotel.id}}" style=" margin-left: 50px;color: #0F0F0F;text-decoration: none"></a>-->
+          <a th:href="@{'/rate/'+1+'/'+${hotel.rating}+'/'+${hotel.id}}" class="fas fa-star s1 btn btn-outline-warning" style="color: #8ebf42;font-size: xx-large;border: none"></a>
+          <a th:href="@{'/rate/'+2+'/'+${hotel.rating}+'/'+${hotel.id}}" class="fas fa-star s1 btn btn-outline-warning" style="color: #8ebf42;font-size: xx-large;border: none"></a>
+          <a th:href="@{'/rate/'+3+'/'+${hotel.rating}+'/'+${hotel.id}}" class="fas fa-star s1 btn btn-outline-warning" style="color: #8ebf42;font-size: xx-large;border: none"></a>
+          <a th:href="@{'/rate/'+4+'/'+${hotel.rating}+'/'+${hotel.id}}" class="fas fa-star s1 btn btn-outline-warning" style="color: #8ebf42;font-size: xx-large;border: none"></a>
+          <a th:href="@{'/rate/'+5+'/'+${hotel.rating}+'/'+${hotel.id}}" class="fas fa-star s1 btn btn-outline-warning" style="color: #8ebf42;font-size: xx-large;border: none"></a>
+          <a th:href="@{'/rate/'+6+'/'+${hotel.rating}+'/'+${hotel.id}}" class="fas fa-star s1 btn btn-outline-warning" style="color: #8ebf42;font-size: xx-large;border: none"></a>
+          <a th:href="@{'/rate/'+7+'/'+${hotel.rating}+'/'+${hotel.id}}" class="fas fa-star s1 btn btn-outline-warning" style="color: #8ebf42;font-size: xx-large;border: none"></a>
+          <a th:href="@{'/rate/'+8+'/'+${hotel.rating}+'/'+${hotel.id}}" class="fas fa-star s1 btn btn-outline-warning" style="color: #8ebf42;font-size: xx-large;border: none"></a>
+          <a th:href="@{'/rate/'+9+'/'+${hotel.rating}+'/'+${hotel.id}}" class="fas fa-star s1 btn btn-outline-warning" style="color: #8ebf42;font-size: xx-large;border: none"></a>
+          <a th:href="@{'/rate/'+10+'/'+${hotel.rating}+'/'+${hotel.id}}" class="fas fa-star s1 btn btn-outline-warning" style="color: #8ebf42;font-size: xx-large;border: none"></a>
+      </div>
+      <script src="https://kit.fontawesome.com/5ea815c1d0.js"></script>
+      <div class="wraper">
+          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="gitlabBilal" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+      </div>
 
+      <div class="progress" style="height: 20px;">
+          <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
 
-
-
-
-
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      <i type="button" class="btn btn-outline-warning" style="margin-left: 200px;font-weight: bold;font-size: large;margin-right: 100px" sec:authorize="isAuthenticated()">Voted users:</i>
+        &nbsp;
+      <table class="table align-middle mb-0 bg-white" style="margin-left: 200px;width: 800px" sec:authorize="isAuthenticated()">
+          <tbody>
+             <tr th:each="v: ${votedUsers}">
+                 <td style="margin-left: 200px"  th:text="${v.user.name}+' from '+${v.user.citizenship.name}+'  and his voted '+${v.votedRating}+' stars '"></td>
+             </tr>
+          </tbody>
+      </table>
 
     &nbsp;
     &nbsp;
     &nbsp;
-    <script>
 
-    </script>
   </div>
 </div>
 
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -44,8 +44,6 @@
           &nbsp;
           <a type="button" class="btn btn-outline-primary" style="font-style: inherit;color: #003580;background-color: white;padding-top: 10px;padding-bottom: 1px" href="/login"  sec:authorize="isAnonymous()">Sign in</a>
 
-
-
       </ul>
       </ul>
     </div>
@@ -62,24 +60,28 @@
 
         <input class="form-control me-2 border border-3 border-warning" style="width: 270px" type="search" placeholder="Hotel's name?" aria-label="Search" name="hotel">
 
-        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example" name="city" style="width: 180px" >
+        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example"  style="width: 180px" >
             <option selected >Country/City</option>
             <optgroup th:each="c: ${countries}"   th:label="${c.name}">
-                <option   th:each="ci: ${c.cities}" th:text="${ci.name}" th:value="${ci.id}"></option>
+                <option   th:each="ci: ${c.cities}" th:text="${ci.name}" th:value="${ci.id}" name="city"></option>
             </optgroup>
         </select>
-        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example" name="type" style="width: 160px">
+
+        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example"  style="width: 160px">
             <option selected >Type of Hotel</option>
-            <option th:each="t: ${typeOfHotels}" th:text="${t.type}" th:value="${t.id}"></option>
+            <option th:each="t: ${typeOfHotels}" th:text="${t.type}" th:value="${t.id}" name="type"></option>
         </select>
-        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example" name="stars" style="width: 160px">
+
+        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example"  style="width: 160px">
             <option selected >Stars of Hotel</option>
-            <option th:each="s: ${stars}" th:text="${s.name}" th:value="${s.id}"></option>
+            <option th:each="s: ${stars}" th:text="${s.name}" th:value="${s.id}" name="stars"></option>
         </select>
-        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example" name="nomer" style="width: 160px">
+
+        <select class="form-select me-2 border border-3 border-warning" aria-label="Default select example"  style="width: 160px">
             <option selected >Type of Room</option>
-            <option th:each="t: ${typeOfNomers}" th:text="${t.type}" th:value="${t.id}"></option>
+            <option th:each="t: ${typeOfNomers}" th:text="${t.type}" th:value="${t.id}" name="nomer"></option>
         </select>
+
       <button class="btn btn-outline-success" type="submit" style="font-style: inherit;color: #003580;background-color: burlywood">Search</button>
     </form>
   </div>

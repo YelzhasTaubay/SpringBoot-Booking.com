@@ -1,6 +1,8 @@
 package com.example.bookingcom.service.impl;
 
 import com.example.bookingcom.dao.UserRepository;
+import com.example.bookingcom.entities.Hotels;
+import com.example.bookingcom.entities.Role;
 import com.example.bookingcom.entities.Users;
 import com.example.bookingcom.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,11 @@ public class UserServiceImpl implements UserService {
     public Optional<Users> getUserById(Long id) {
         Optional<Users> user=userRepository.findById(id);
         return user;
+    }
+
+    @Override
+    public void updateUser(Users user) {
+        userRepository.save(user);
     }
 
 
