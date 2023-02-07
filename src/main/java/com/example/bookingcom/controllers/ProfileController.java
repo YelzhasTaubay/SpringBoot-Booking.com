@@ -105,7 +105,6 @@ public class ProfileController {
         System.out.println(name+"    "+surname+"    "+phone+"   "+citizenship+"     "+passwordId+"  "+
                 male+"    "+female+"    "+ day+ " "+month+" "+year+" "+numberOfCard+" "+valid+" "+money);
 
-
         return "redirect:/";
     }
 

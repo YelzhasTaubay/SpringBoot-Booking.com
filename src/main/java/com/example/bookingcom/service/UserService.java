@@ -1,5 +1,6 @@
 package com.example.bookingcom.service;
 
+import com.example.bookingcom.dto.UsersDto;
 import com.example.bookingcom.entities.Hotels;
 import com.example.bookingcom.entities.Role;
 import com.example.bookingcom.entities.Users;
@@ -21,5 +22,15 @@ public interface UserService extends UserDetailsService {
     Optional<Users> getUserById(Long id);
 
     void updateUser(Users user);
+
+
+    UsersDto getUserDtoFromUser(Users user);
+
+    Users getUserFromUserDto(UsersDto usersDto);
+
+    List<Users> getUsersListFromDtosList(List<UsersDto> usersDtos);
+
+    List<UsersDto> getDtosListFromUsersList(List<Users> users);
+
 
 }

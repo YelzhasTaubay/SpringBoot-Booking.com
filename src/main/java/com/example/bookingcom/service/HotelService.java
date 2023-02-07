@@ -1,5 +1,6 @@
 package com.example.bookingcom.service;
 
+import com.example.bookingcom.dto.HotelsDto;
 import com.example.bookingcom.entities.Hotels;
 
 import java.util.List;
@@ -16,6 +17,17 @@ public interface HotelService {
     void saveOrUpdateHotel(Hotels hotel);
 
     Hotels findHotelbyName(String name);
+
+
+//    ======================
+
+    HotelsDto toHotelsDto(Hotels hotel);
+
+    Hotels toHotelFromDto(HotelsDto hotelsDto);
+
+    List<HotelsDto> toHotelsListDto(List<Hotels> hotels);
+
+    List<Hotels> toHotelsListFromDto(List<HotelsDto> hotelsDtos);
 
 
 

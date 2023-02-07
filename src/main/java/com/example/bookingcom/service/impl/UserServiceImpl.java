@@ -1,8 +1,7 @@
 package com.example.bookingcom.service.impl;
 
 import com.example.bookingcom.dao.UserRepository;
-import com.example.bookingcom.entities.Hotels;
-import com.example.bookingcom.entities.Role;
+import com.example.bookingcom.dto.UsersDto;
 import com.example.bookingcom.entities.Users;
 import com.example.bookingcom.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +16,7 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
 
     @Override
     public Users getUserByEmail(String email) {
@@ -49,6 +49,26 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUser(Users user) {
         userRepository.save(user);
+    }
+
+    @Override
+    public UsersDto getUserDtoFromUser(Users user) {
+        return null;
+    }
+
+    @Override
+    public Users getUserFromUserDto(UsersDto usersDto) {
+        return null;
+    }
+
+    @Override
+    public List<Users> getUsersListFromDtosList(List<UsersDto> usersDtos) {
+        return null;
+    }
+
+    @Override
+    public List<UsersDto> getDtosListFromUsersList(List<Users> users) {
+        return null;
     }
 
 

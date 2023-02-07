@@ -1,7 +1,9 @@
 package com.example.bookingcom.service.impl;
 
 import com.example.bookingcom.dao.HotelsRepository;
+import com.example.bookingcom.dto.HotelsDto;
 import com.example.bookingcom.entities.Hotels;
+import com.example.bookingcom.mapper.HotelMapper;
 import com.example.bookingcom.service.HotelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import java.util.Optional;
 public class HotelServiceImpl implements HotelService {
 
     private final HotelsRepository hotelsRepository;
+    private final HotelMapper hotelMapper;
 
     @Override
     public List<Hotels> getAllHotels() {
@@ -42,6 +45,26 @@ public class HotelServiceImpl implements HotelService {
     public Hotels findHotelbyName(String name) {
         Hotels hotel=hotelsRepository.findHotelsByTitle(name);
         return hotel;
+    }
+
+    @Override
+    public HotelsDto toHotelsDto(Hotels hotel) {
+        return null;
+    }
+
+    @Override
+    public Hotels toHotelFromDto(HotelsDto hotelsDto) {
+        return null;
+    }
+
+    @Override
+    public List<HotelsDto> toHotelsListDto(List<Hotels> hotels) {
+        return null;
+    }
+
+    @Override
+    public List<Hotels> toHotelsListFromDto(List<HotelsDto> hotelsDtos) {
+        return null;
     }
 
 

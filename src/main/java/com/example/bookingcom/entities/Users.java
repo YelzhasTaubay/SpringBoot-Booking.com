@@ -1,5 +1,7 @@
 package com.example.bookingcom.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,26 +29,29 @@ public class Users implements UserDetails {
     private String name;
     private String surname;
     private int age;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     private Gender gender;
     private String passportId;
     private String phoneNumber;
     private String email;
     private String password;
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
-    @OneToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @OneToOne(fetch = FetchType.EAGER)
     private Country citizenship;
     @Nullable
     private String photo;
     private Boolean children;
+    @JsonIgnore
     @OneToOne
     private Bank_Card bank_card;
     @Nullable
+    @JsonIgnore
     @ManyToMany
     private List<Hotels> favoriteHotels;
-
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
