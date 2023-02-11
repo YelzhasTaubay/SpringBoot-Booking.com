@@ -9,13 +9,12 @@ import lombok.Setter;
 @Setter
 public class UsersDto {
 
-
     private Long id;
     private String name;
     private String surname;
     private int age;
     private Gender gender;
-    private String passwordId;
+    private String passportId;
     private String phoneNumber;
     private String email;
     private Country citizenship;

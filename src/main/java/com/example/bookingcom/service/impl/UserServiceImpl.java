@@ -3,6 +3,7 @@ package com.example.bookingcom.service.impl;
 import com.example.bookingcom.dao.UserRepository;
 import com.example.bookingcom.dto.UsersDto;
 import com.example.bookingcom.entities.Users;
+import com.example.bookingcom.mapper.UserMapper;
 import com.example.bookingcom.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,11 +17,23 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
-
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
     public Users getUserByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public Users getUserByIdFromIteration(Long id) {
+        Users user=null;
+        for (int i = 0; i < getAllUsers().size(); i++) {
+            if (id == getAllUsers().get(i).getId()){
+                user= getAllUsers().get(i);
+            }
+        }
+        return user;
     }
 
     @Override
@@ -52,23 +65,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
     public UsersDto getUserDtoFromUser(Users user) {
-        return null;
+        return userMapper.getUserDtoFromUser(user);
     }
 
     @Override
     public Users getUserFromUserDto(UsersDto usersDto) {
-        return null;
+        return userMapper.getUserFromUserDto(usersDto);
     }
 
     @Override
     public List<Users> getUsersListFromDtosList(List<UsersDto> usersDtos) {
-        return null;
+        return userMapper.getUsersListFromDtosList(usersDtos);
     }
 
     @Override
     public List<UsersDto> getDtosListFromUsersList(List<Users> users) {
-        return null;
+        return userMapper.getDtosListFromUsersList(users);
     }
 
 

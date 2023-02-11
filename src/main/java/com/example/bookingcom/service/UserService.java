@@ -13,6 +13,8 @@ public interface UserService extends UserDetailsService {
 
     Users getUserByEmail(String email);
 
+    Users getUserByIdFromIteration(Long id);
+
     void addUser(Users user);
 
     List<Users> getAllUsers();
@@ -22,6 +24,8 @@ public interface UserService extends UserDetailsService {
     Optional<Users> getUserById(Long id);
 
     void updateUser(Users user);
+
+    void deleteUser(Long id);
 
 
     UsersDto getUserDtoFromUser(Users user);

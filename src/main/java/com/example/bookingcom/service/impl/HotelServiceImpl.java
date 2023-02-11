@@ -4,6 +4,7 @@ import com.example.bookingcom.dao.HotelsRepository;
 import com.example.bookingcom.dto.HotelsDto;
 import com.example.bookingcom.entities.Hotels;
 import com.example.bookingcom.mapper.HotelMapper;
+import com.example.bookingcom.mapper.HotelMapperImpl;
 import com.example.bookingcom.service.HotelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -48,24 +49,41 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
+    public void deleteHotel(Long id) {
+        hotelsRepository.deleteById(id);
+    }
+
+    @Override
     public HotelsDto toHotelsDto(Hotels hotel) {
-        return null;
+        return hotelMapper.toHotelsDto(hotel);
     }
 
     @Override
     public Hotels toHotelFromDto(HotelsDto hotelsDto) {
-        return null;
+        return hotelMapper.toHotelFromDto(hotelsDto);
     }
 
     @Override
     public List<HotelsDto> toHotelsListDto(List<Hotels> hotels) {
-        return null;
+        return hotelMapper.toHotelsListDto(hotels);
     }
 
     @Override
     public List<Hotels> toHotelsListFromDto(List<HotelsDto> hotelsDtos) {
-        return null;
+        return hotelMapper.toHotelsListFromDto(hotelsDtos);
     }
+
+    public Hotels getHotelbyIdbyIteration(Long id){
+        Hotels hotel=null;
+        for (int i = 0; i < getAllHotels().size(); i++) {
+            if (getAllHotels().get(i).getId() == id){
+                hotel=getAllHotels().get(i);
+            }
+        }
+        return hotel;
+    }
+
+
 
 
 }

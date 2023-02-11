@@ -18,6 +18,10 @@ public interface HotelService {
 
     Hotels findHotelbyName(String name);
 
+    Hotels getHotelbyIdbyIteration(Long id);
+
+    void deleteHotel(Long id);
+
 
 //    ======================
 

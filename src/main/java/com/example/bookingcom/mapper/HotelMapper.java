@@ -3,6 +3,7 @@ package com.example.bookingcom.mapper;
 import com.example.bookingcom.dto.HotelsDto;
 import com.example.bookingcom.entities.Hotels;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 

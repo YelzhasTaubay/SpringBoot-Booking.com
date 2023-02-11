@@ -1,5 +1,6 @@
 package com.example.bookingcom.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +21,8 @@ public class TypeOfHotel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String type;
-    @ManyToMany(fetch = FetchType.EAGER)     //Здесь кажется нужно менять Мани то Мани
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY)     //Здесь кажется нужно менять Мани то Мани
     private List<TypeOfNomer> typeOfNomers;
 
 

@@ -1,12 +1,15 @@
 package com.example.bookingcom.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.List;
 
 @Data
@@ -26,18 +29,23 @@ public class Hotels {
     private String street;
     @Column(nullable = true,updatable = true,insertable = true)
     private double rating;
-//    @ColumnDefault("0")
-//    private int usersVote;
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     private Users owner;
-    @ManyToMany
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY)
+
     private List<Country> country;
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
     private TypeOfHotel typeOfHotel;
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     private List<ComfortsOfHotel> comforts;
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     private List<StuffsOfHotel> stuffsOfHotels;
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY)
     private List<PhotosOfHotel> photos;
 

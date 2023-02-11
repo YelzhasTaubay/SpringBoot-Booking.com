@@ -26,6 +26,12 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *      Я знаю что нельзя писать логику в контроллере это как говорится not reusable, а переписать логику в сервис не хочется.
+ *   Если не найду работу с этим проектом то следующий проект буду делать правильным образом как говорится чисто писать код,
+ *   так или иначе я многому научился делая этот свой корявый мини пет-проект.
+ */
+
 @Controller
 @RequiredArgsConstructor
 public class HotelController {
